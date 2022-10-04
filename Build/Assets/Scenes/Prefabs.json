@@ -1,0 +1,639 @@
+{
+  "actors": [
+    {
+      "type": "Actor",
+      "name": "HitBox",
+      "prefab": true,
+      "components": [
+        {
+          "type": "RBPhysicsComponent",
+          "data.gravity_scale": 0,
+          "data.constrain_angle": true
+        },
+        {
+          "type": "CollisionComponent",
+          "data.size": [
+            10,
+            10
+          ],
+          "data.is_trigger": true
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Knight",
+      "tag": "Player",
+      "prefab": true,
+      "transform": {
+        "position": [
+          400,
+          300
+        ],
+        "rotation": 0,
+        "scale": [ 2, 2 ]
+      },
+      "components": [
+        {
+          "type": "PlayerComponent",
+          "speed": 5,
+          "damage": 10.0,
+          "health": 100
+        },
+        {
+          "type": "SpriteAnimComponent",
+          "default_sequence": "ForwardIdle",
+          "sequences": [
+            {
+              "sequence.name": "ForwardRun",
+              "sequence.fps": 6,
+              "sequence.num_columns": 2,
+              "sequence.num_rows": 2,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 4,
+              "texture_name": "Sprites/Knight/KnightForwardRun.png"
+            },
+            {
+              "sequence.name": "UpRun",
+              "sequence.fps": 6,
+              "sequence.num_columns": 2,
+              "sequence.num_rows": 2,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 4,
+              "texture_name": "Sprites/Knight/KnightUpRun.png"
+            },
+            {
+              "sequence.name": "ForwardIdle",
+              "sequence.fps": 2,
+              "sequence.num_columns": 2,
+              "sequence.num_rows": 2,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 3,
+              "texture_name": "Sprites/Knight/KnightForwardIdle.png"
+            },
+            {
+              "sequence.name": "UpIdle",
+              "sequence.fps": 1,
+              "sequence.num_columns": 2,
+              "sequence.num_rows": 2,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 1,
+              "texture_name": "Sprites/Knight/KnightUpRun.png"
+            },
+            {
+              "sequence.name": "LeftRun",
+              "sequence.fps": 6,
+              "sequence.num_columns": 2,
+              "sequence.num_rows": 2,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 4,
+              "texture_name": "Sprites/Knight/KnightLeftRun.png"
+            },
+            {
+              "sequence.name": "LeftIdle",
+              "sequence.fps": 2,
+              "sequence.num_columns": 2,
+              "sequence.num_rows": 2,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 3,
+              "texture_name": "Sprites/Knight/KnightLeftIdle.png"
+            },
+            {
+              "sequence.name": "AtkLeft",
+              "sequence.fps": 17,
+              "sequence.num_columns": 3,
+              "sequence.num_rows": 3,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 7,
+              "sequence.loop": false,
+              "texture_name": "Sprites/Knight/KnightAttackLeft.png"
+            },
+            {
+              "sequence.name": "AtkUp",
+              "sequence.fps": 17,
+              "sequence.num_columns": 2,
+              "sequence.num_rows": 3,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 6,
+              "sequence.loop": false,
+              "texture_name": "Sprites/Knight/KnightAttackUp.png"
+            },
+            {
+              "sequence.name": "AtkDown",
+              "sequence.fps": 12,
+              "sequence.num_columns": 2,
+              "sequence.num_rows": 2,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 4,
+              "sequence.loop": false,
+              "texture_name": "Sprites/Knight/KnightForwardAttack.png"
+            }
+          ]
+        },
+        {
+          "type": "RBPhysicsComponent",
+          "damping": 1.0,
+          "data.constrain_angle": true,
+          "data.gravity_scale": 0
+        },
+        {
+          "type": "CollisionComponent",
+          "data.restitution": 0.0
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Wizard",
+      "tag": "Player",
+      "prefab": true,
+      "transform": {
+        "position": [
+          400,
+          300
+        ],
+        "rotation": 0,
+        "scale": [ 2, 2 ]
+      },
+      "components": [
+        {
+          "type": "PlayerComponent",
+          "speed": 5,
+          "damage": 20.0,
+          "health":  50
+        },
+        {
+          "type": "SpriteAnimComponent",
+          "default_sequence": "ForwardIdle",
+          "sequences": [
+            {
+              "sequence.name": "ForwardRun",
+              "sequence.fps": 8,
+              "sequence.num_columns": 2,
+              "sequence.num_rows": 2,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 4,
+              "texture_name": "Sprites/Wizard/PPForwardRun.png"
+            },
+            {
+              "sequence.name": "UpRun",
+              "sequence.fps": 8,
+              "sequence.num_columns": 2,
+              "sequence.num_rows": 2,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 4,
+              "texture_name": "Sprites/Wizard/PPUpRun.png"
+            },
+            {
+              "sequence.name": "ForwardIdle",
+              "sequence.fps": 8,
+              "sequence.num_columns": 2,
+              "sequence.num_rows": 2,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 4,
+              "texture_name": "Sprites/Wizard/PPForwardIdle.png"
+            },
+            {
+              "sequence.name": "UpIdle",
+              "sequence.fps": 1,
+              "sequence.num_columns": 2,
+              "sequence.num_rows": 2,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 1,
+              "texture_name": "Sprites/Wizard/PPUpRun.png"
+            },
+            {
+              "sequence.name": "LeftRun",
+              "sequence.fps": 6,
+              "sequence.num_columns": 2,
+              "sequence.num_rows": 2,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 4,
+              "texture_name": "Sprites/Wizard/PPLeftRun.png"
+            },
+            {
+              "sequence.name": "LeftIdle",
+              "sequence.fps": 8,
+              "sequence.num_columns": 2,
+              "sequence.num_rows": 2,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 4,
+              "texture_name": "Sprites/Wizard/PPLeftIdle.png"
+            },
+            {
+              "sequence.name": "AtkLeft",
+              "sequence.fps": 10,
+              "sequence.num_columns": 3,
+              "sequence.num_rows": 5,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 13,
+              "sequence.loop": false,
+              "texture_name": "Sprites/Wizard/PPLeftAttack.png"
+            },
+            {
+              "sequence.name": "AtkUp",
+              "sequence.fps": 20,
+              "sequence.num_columns": 3,
+              "sequence.num_rows": 2,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 6,
+              "sequence.loop": false,
+              "texture_name": "Sprites/Wizard/PPUpAttack.png"
+            },
+            {
+              "sequence.name": "AtkDown",
+              "sequence.fps": 16,
+              "sequence.num_columns": 5,
+              "sequence.num_rows": 3,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 14,
+              "sequence.loop": false,
+              "texture_name": "Sprites/Wizard/PPForwardAttack.png"
+            }
+          ]
+        },
+        {
+          "type": "RBPhysicsComponent",
+          "damping": 1.0,
+          "data.constrain_angle": true,
+          "data.gravity_scale": 0
+        },
+        {
+          "type": "CollisionComponent",
+          "data.restitution": 0.0
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "cultistAtk",
+      "prefab": true,
+      "tag": "Enemy",
+      "lifespan": 4,
+      "transform": {
+        "position": [
+          600,
+          200
+        ],
+        "scale": [
+          2,
+          2
+        ],
+        "rotation": 0
+      },
+      "components": [
+        {
+          "type": "RBPhysicsComponent",
+          "damping": 0,
+          "data.gravity_scale": 0,
+          "data.constrain_angle": false
+        },
+        {
+          "type": "CollisionComponent",
+          "data.restitution": 0.7,
+          "data.is_trigger": true
+        },
+        {
+          "type": "SpriteAnimComponent",
+          "default_sequence" : "Move",
+          "sequences": [
+            {
+              "sequence.name": "Move",
+              "sequence.fps": 20,
+              "sequence.num_columns": 2,
+              "sequence.num_rows": 2,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 4,
+              "texture_name": "Sprites/Cultist/FireBall.png"
+            }
+          ]
+        },
+        {
+          "type": "ProjectileComponent",
+          "speed": 10,
+          "delay": 0.75
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Ghost",
+      "prefab": true,
+      "tag": "Enemy",
+      "transform": {
+        "position": [
+          600,
+          200
+        ],
+        "scale": [
+          1,
+          1
+        ],
+        "rotation": 0
+      },
+      "components": [
+        {
+          "type": "RBPhysicsComponent",
+          "damping": 0.4,
+          "data.gravity_scale": 0,
+          "data.constrain_angle": true
+        },
+        {
+          "type": "EnemyComponent",
+          "speed": 3,
+          "health": 30,
+          "damage": 10,
+          "follow_dist": 300,
+          "attack_range": 50,
+          "projectile_name": "ghostAtk"
+        },
+        {
+          "type": "CollisionComponent",
+          "data.restitution": 0.7,
+          "scale_offset": [
+            0.3,
+            0.5
+          ],
+          "data.is_trigger": true
+        },
+        {
+          "type": "SpriteAnimComponent",
+          "default_sequence": "idle",
+          "sequences": [
+            {
+              "sequence.name": "idle",
+              "sequence.fps": 12,
+              "sequence.num_columns": 7,
+              "sequence.num_rows": 1,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 7,
+              "texture_name": "Sprites/ghost-idle.png"
+            }
+          ]
+        },
+        {
+          "type": "EnemyComponent",
+          "speed": 3,
+          "health": 30,
+          "damage": 10,
+          "follow_dist": 300,
+          "attack_range": 100,
+          "projectile_name": "ghostAtk"
+        },
+        {
+          "type": "CollisionComponent",
+          "data.restitution": 0.7,
+          "scale_offset": [
+            0.3,
+            0.5
+          ],
+          "data.is_trigger": true
+        },
+        {
+          "type": "SpriteAnimComponent",
+          "default_sequence": "idle",
+          "sequences": [
+            {
+              "sequence.name": "idle",
+              "sequence.fps": 12,
+              "sequence.num_columns": 7,
+              "sequence.num_rows": 1,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 7,
+              "texture_name": "Sprites/ghost-idle.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Goblin",
+      "prefab": true,
+      "tag": "Enemy",
+      "transform": {
+        "position": [
+          600,
+          200
+        ],
+        "scale": [
+          2,
+          2
+        ],
+        "rotation": 0
+      },
+      "components": [
+        {
+          "type": "RBPhysicsComponent",
+          "damping": 0,
+          "data.gravity_scale": 0,
+          "data.constrain_angle": true
+        },
+        {
+          "type": "EnemyComponent",
+          "speed": 5,
+          "health": 10,
+          "damage": 10,
+          "follow_dist": 100,
+          "attack_range": 80
+        },
+        {
+          "type": "CollisionComponent",
+          "data.restitution": 0.7,
+          "scale_offset": [
+            0.5,
+            0.5
+          ],
+          "data.is_trigger": false
+        },
+        {
+          "type": "SpriteAnimComponent",
+          "default_sequence": "ForwardIdle",
+          "sequences": [
+            {
+              "sequence.name": "ForwardIdle",
+              "sequence.fps": 2,
+              "sequence.num_columns": 2,
+              "sequence.num_rows": 2,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 3,
+              "texture_name": "Sprites/Goblin/GoblinForwardIdle.png"
+            },
+            {
+              "sequence.name": "ForwardRun",
+              "sequence.fps": 12,
+              "sequence.num_columns": 2,
+              "sequence.num_rows": 2,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 4,
+              "texture_name": "Sprites/Goblin/GoblinForwardRun.png"
+            },
+            {
+              "sequence.name": "LeftRun",
+              "sequence.fps": 6,
+              "sequence.num_columns": 2,
+              "sequence.num_rows": 2,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 4,
+              "texture_name": "Sprites/Goblin/GoblinLeftRun.png"
+            },
+            {
+              "sequence.name": "LeftAtk",
+              "sequence.fps": 10,
+              "sequence.num_columns": 3,
+              "sequence.num_rows": 3,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 9,
+              "sequence.loop": false,
+              "texture_name": "Sprites/Goblin/GoblinLeftAttack.png"
+            },
+            {
+              "sequence.name": "UpAtk",
+              "sequence.fps": 12,
+              "sequence.num_columns": 3,
+              "sequence.num_rows": 3,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 7,
+              "sequence.loop": false,
+              "texture_name": "Sprites/Goblin/GoblinUpAttack.png"
+            },
+            {
+              "sequence.name": "ForwardAtk",
+              "sequence.fps": 6,
+              "sequence.num_columns": 2,
+              "sequence.num_rows": 3,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 5,
+              "sequence.loop": false,
+              "texture_name": "Sprites/Goblin/GoblinForwardAttack.png"
+            },
+            {
+              "sequence.name": "UpRun",
+              "sequence.fps": 8,
+              "sequence.num_columns": 2,
+              "sequence.num_rows": 2,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 4,
+              "texture_name": "Sprites/Goblin/GoblinUpRun.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Cultist",
+      "prefab": true,
+      "tag": "Enemy",
+      "transform": {
+        "position": [
+          600,
+          200
+        ],
+        "scale": [
+          2,
+          2
+        ],
+        "rotation": 0
+      },
+      "components": [
+        {
+          "type": "RBPhysicsComponent",
+          "damping": 0,
+          "data.gravity_scale": 0,
+          "data.constrain_angle": true
+        },
+        {
+          "type": "EnemyComponent",
+          "speed": 4,
+          "health": 5,
+          "damage": 15,
+          "follow_dist": 100,
+          "attack_range": 200,
+          "projectile_name":  "cultistAtk"
+        },
+        {
+          "type": "CollisionComponent",
+          "data.restitution": 0.7,
+          "scale_offset": [
+            0.5,
+            0.5
+          ],
+          "data.is_trigger": false
+        },
+        {
+          "type": "SpriteAnimComponent",
+          "default_sequence": "ForwardIdle",
+          "sequences": [
+            {
+              "sequence.name": "ForwardIdle",
+              "sequence.fps": 3,
+              "sequence.num_columns": 1,
+              "sequence.num_rows": 2,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 2,
+              "texture_name": "Sprites/Cultist/CultistForwardIdle.png"
+            },
+            {
+              "sequence.name": "ForwardRun",
+              "sequence.fps": 12,
+              "sequence.num_columns": 2,
+              "sequence.num_rows": 2,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 4,
+              "texture_name": "Sprites/Goblin/GoblinForwardRun.png"
+            },
+            {
+              "sequence.name": "LeftRun",
+              "sequence.fps": 4,
+              "sequence.num_columns": 2,
+              "sequence.num_rows": 2,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 4,
+              "texture_name": "Sprites/Cultist/CultistLeftRun.png"
+            },
+            {
+              "sequence.name": "LeftAtk",
+              "sequence.fps": 6,
+              "sequence.num_columns": 2,
+              "sequence.num_rows": 3,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 5,
+              "sequence.loop": false,
+              "texture_name": "Sprites/Cultist/CultistLeftAttack.png"
+            },
+            {
+              "sequence.name": "UpAtk",
+              "sequence.fps": 12,
+              "sequence.num_columns": 3,
+              "sequence.num_rows": 3,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 7,
+              "sequence.loop": false,
+              "texture_name": "Sprites/Goblin/GoblinUpAttack.png"
+            },
+            {
+              "sequence.name": "ForwardAtk",
+              "sequence.fps": 6,
+              "sequence.num_columns": 2,
+              "sequence.num_rows": 3,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 5,
+              "sequence.loop": false,
+              "texture_name": "Sprites/Goblin/GoblinForwardAttack.png"
+            },
+            {
+              "sequence.name": "UpRun",
+              "sequence.fps": 8,
+              "sequence.num_columns": 2,
+              "sequence.num_rows": 2,
+              "sequence.start_frame": 1,
+              "sequence.end_frame": 4,
+              "texture_name": "Sprites/Goblin/GoblinUpRun.png"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

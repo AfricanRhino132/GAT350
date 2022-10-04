@@ -1,0 +1,207 @@
+{
+  "actors": [
+    {
+      "type": "Actor",
+      "name": "TitleMusic",
+      "active": true,
+      "components": [
+        {
+          "type": "AudioComponent",
+          "sound_name": "Audio/Music/TitleMusic.mp3",
+          "loop": true,
+          "play_on_start": true
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "bgCobble",
+      "transform": {
+        "position": [
+          960,
+          540
+        ],
+        "scale": [
+          3,
+          3
+        ],
+        "rotation": 0
+      },
+      "components": [
+        {
+          "type": "SpriteComponent",
+          "texture_name": "Images/cobble.jpg"
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "bgScroll",
+      "transform": {
+        "position": [
+          960,
+          540
+        ],
+        "scale": [
+          1,
+          1
+        ],
+        "rotation": 0
+      },
+      "components": [
+        {
+          "type": "SpriteComponent",
+          "texture_name": "Images/scroll.png"
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "StartText",
+      "tag": "Clickable",
+      "active": true,
+      "transform": {
+        "position": [
+          780,
+          340
+        ],
+        "scale": [
+          3.5,
+          3.5
+        ],
+        "rotation": 0
+      },
+      "components": [
+        {
+          "type": "TextComponent",
+          "text": "Start Game",
+          "font_name": "Fonts/Enchanted.ttf",
+          "font_size": 32,
+          "registration": [
+            0.0,
+            0.5
+          ],
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "ExitText",
+      "tag": "Clickable",
+      "active": true,
+      "transform": {
+        "position": [
+          780,
+          540
+        ],
+        "scale": [
+          3.5,
+          3.5
+        ],
+        "rotation": 0
+      },
+      "components": [
+        {
+          "type": "TextComponent",
+          "text": "Quit Game",
+          "font_name": "Fonts/Enchanted.ttf",
+          "font_size": 32,
+          "registration": [
+            0.0,
+            0.5
+          ],
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "CreditsText",
+      "active": true,
+      "transform": {
+        "position": [
+          770,
+          865
+        ],
+        "scale": [
+          1.5,
+          1.5
+        ],
+        "rotation": 0
+      },
+      "components": [
+        {
+          "type": "TextComponent",
+          "text": "Made By Collin, Platte, Ryan",
+          "font_name": "Fonts/Enchanted.ttf",
+          "font_size": 16,
+          "registration": [
+            0.0,
+            0.5
+          ],
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "PlayGameSelection",
+      "active": true,
+      "transform": {
+        "position": [
+          670,
+          340
+        ],
+        "scale": [
+          1.5,
+          1.5
+        ],
+        "rotation": 0
+      },
+      "components": [
+        {
+          "type": "SpriteComponent",
+          "texture_name": "Images/SelectionArrow.png"
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "QuitGameSelection",
+      "active": false,
+      "transform": {
+        "position": [
+          670,
+          540
+        ],
+        "scale": [
+          1.5,
+          1.5
+        ],
+        "rotation": 0
+      },
+      "components": [
+        {
+          "type": "SpriteComponent",
+          "texture_name": "Images/SelectionArrow.png"
+        }
+      ]
+    }
+  ]
+}
