@@ -310,5 +310,8 @@
     <ClCompile Include="Components\CameraComponent.cpp">
       <Filter>Source\Components</Filter>
     </ClCompile>
+    <ClCompile Include="..\ThirdParty\glad\src\glad.c">
+      <Filter>Source\Renderer</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
