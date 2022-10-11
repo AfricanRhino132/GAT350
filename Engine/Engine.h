@@ -2,6 +2,8 @@
 
 #include "Serialization/Json.h"
 
+#include "glm/glm.hpp"
+
 #include "Physics/PhysicsSystem.h"
 
 #include "Core/Memory.h"
@@ -23,6 +25,7 @@
 #include "Renderer/Font.h"
 #include "Renderer/Text.h"
 #include "Renderer/Renderer.h"
+#include "Renderer/Shader.h"
 
 #include "Input/InputSystem.h"
 
