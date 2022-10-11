@@ -4,9 +4,11 @@
 
 float points[] = {
   -0.5f, -0.5f,  0.0f,
-   0.5f,  -0.5f,  0.0f,
-   0.5f, 0.5f,  0.0f,
-   -0.5f, 0.5f,  0.0f
+   0.5f,  0.5f,  0.0f,
+   0.5f, -0.5f,  0.0f,
+	-0.5f, -0.5f,  0.0f,
+   -0.5f,  0.5f,  0.0f,
+   0.5f, 0.5f,  0.0f
 };
 
 /*
@@ -32,7 +34,7 @@ const char* fragment_shader =
 "#version 430 core\n"
 "out vec4 color;"
 "void main() {"
-"  color = vec4(1.0, 1.0, 1.0, 1.0);"
+"  color = vec4(0, 0, 1.0, 1.0);"
 "}";
 
 int main(int argc, char** argv)
@@ -47,7 +49,7 @@ int main(int argc, char** argv)
 	GLuint vbo = 0;
 	glGenBuffers(1, &vbo);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(GL_ARRAY_BUFFER, 12 * sizeof(float), points, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, 18 * sizeof(float), points, GL_STATIC_DRAW);
 
 	GLuint vao = 0;
 	glGenVertexArrays(1, &vao);
@@ -78,7 +80,7 @@ int main(int argc, char** argv)
 
 		neu::g_renderer.BeginFrame();
 
-		glDrawArrays(GL_LINE_LOOP, 0, 4);
+		glDrawArrays(GL_TRIANGLES, 0, 6);
 
 		neu::g_renderer.EndFrame();
 	}
