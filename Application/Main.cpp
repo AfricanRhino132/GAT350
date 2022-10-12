@@ -3,13 +3,13 @@
 #include <iostream>
 
 float points[] = {
-  -0.5f, -0.5f,  0.0f,
-   0.5f,  0.5f,  0.0f,
-   0.5f, -0.5f,  0.0f,
+  -1.0f, -1.0f,  0.0f,
+   1.0f,  1.0f,  0.0f,
+   1.0f, -1.0f,  0.0f,
 
-	-0.5f, -0.5f,  0.0f,
-   -0.5f,  0.5f,  0.0f,
-   0.5f, 0.5f,  0.0f
+	-1.0f, -1.0f,  0.0f,
+   -1.0f,  1.0f,  0.0f,
+   1.0f, 1.0f,  0.0f
 };
 
 glm::vec3 colors[] = {
@@ -70,12 +70,23 @@ int main(int argc, char** argv)
 	glLinkProgram(program);
 	glUseProgram(program);
 
+	GLint uniform1 = glGetUniformLocation(program, "transform");
+	GLint uniform2 = glGetUniformLocation(program, "tint");
+
+	glUniform3f(uniform2, 1, 1, 1);
+
+	glm::mat4 mx{ 1 };
+	//mx = glm::scale(glm::vec3{ 0.5, 0.5, 0.5 });
+
 	bool quit = false;
 	while (!quit)
 	{
 		neu::Engine::Instance().Update();
 
 		if (neu::g_inputSystem.GetKeyState(neu::key_esc) == neu::InputSystem::State::Pressed) quit = true;
+
+		mx = glm::eulerAngleXYZ(neu::g_time.time, neu::g_time.time, neu::g_time.time);
+		glUniformMatrix4fv(uniform1, 1, GL_FALSE, glm::value_ptr(mx));
 
 		neu::g_renderer.BeginFrame();
 

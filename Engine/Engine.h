@@ -2,8 +2,6 @@
 
 #include "Serialization/Json.h"
 
-#include "glm/glm.hpp"
-
 #include "Physics/PhysicsSystem.h"
 
 #include "Core/Memory.h"
