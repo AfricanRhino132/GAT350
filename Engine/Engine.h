@@ -24,6 +24,7 @@
 #include "Renderer/Text.h"
 #include "Renderer/Renderer.h"
 #include "Renderer/Shader.h"
+#include "Renderer/Texture.h"
 
 #include "Input/InputSystem.h"
 
