@@ -78,27 +78,22 @@ int main(int argc, char** argv)
 	glEnableVertexAttribArray(2);
 	glBindBuffer(GL_ARRAY_BUFFER, tvbo);
 	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 0, NULL);
-
-	std::shared_ptr<neu::Shader> vs = neu::g_resources.Get<neu::Shader>("Shaders/basic.vert", GL_VERTEX_SHADER);
-	std::shared_ptr<neu::Shader> fs = neu::g_resources.Get<neu::Shader>("Shaders/basic.frag", GL_FRAGMENT_SHADER);
-
-	GLuint program = glCreateProgram();
-	glAttachShader(program, vs->m_shader);
-	glAttachShader(program, fs->m_shader);
-	glLinkProgram(program);
-	glUseProgram(program);
-
-	std::shared_ptr<neu::Texture> texture1 = neu::g_resources.Get<neu::Texture>("Textures/llama.jpg");
-	std::shared_ptr<neu::Texture> texture2 = neu::g_resources.Get<neu::Texture>("Textures/wood.png");
-	texture1->Bind();
-
-	GLint uniform1 = glGetUniformLocation(program, "transform");
-	GLint uniform2 = glGetUniformLocation(program, "tint");
-
-	glUniform3f(uniform2, 1, 1, 1);
-
+	
 	glm::mat4 mx{ 1 };
-	//mx = glm::scale(glm::vec3{ 0.5, 0.5, 0.5 });
+	mx = glm::scale(glm::vec3{ 0.5, 0.5, 0.5 });
+
+	std::shared_ptr<neu::Program> program = neu::g_resources.Get<neu::Program>("Shaders/basic.prog");
+	program->Link();
+	program->Use();
+	
+	program->SetUniform("transform", mx);
+	program->SetUniform("scale", std::sin(neu::g_time.time * 3));
+
+	std::shared_ptr<neu::Material> material = neu::g_resources.Get<neu::Material>("materials/box.mtrl");
+	material->Bind();
+
+	material->GetProgram()->SetUniform("tint", glm::vec3{ 1, 0, 0 });
+	material->GetProgram()->SetUniform("scale", 0.5f);
 
 	bool quit = false;
 	while (!quit)
@@ -107,8 +102,8 @@ int main(int argc, char** argv)
 
 		if (neu::g_inputSystem.GetKeyState(neu::key_esc) == neu::InputSystem::State::Pressed) quit = true;
 
-		//mx = glm::eulerAngleXYZ(0.0f, 0.0f, neu::g_time.time * 200);
-		glUniformMatrix4fv(uniform1, 1, GL_FALSE, glm::value_ptr(mx));
+		material->GetProgram()->SetUniform("scale", std::sin(neu::g_time.time * 3));
+		material->GetProgram()->SetUniform("transform", mx);
 
 		neu::g_renderer.BeginFrame();
 

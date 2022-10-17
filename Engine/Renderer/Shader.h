@@ -1,6 +1,6 @@
-#pragma once
-#include "Resource/Resource.h"
-#include "Renderer.h"
+#pragma once 
+#include "Resource/Resource.h" 
+#include "Renderer.h" 
 
 namespace neu
 {
@@ -9,7 +9,7 @@ namespace neu
 	public:
 		~Shader();
 
-		virtual bool Create(std::string name, ...) override;
+		virtual bool Create(std::string filename, ...) override;
 
 	public:
 		GLuint m_shader = 0;
