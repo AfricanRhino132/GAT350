@@ -1,5 +1,5 @@
 { 
-    "program":"shaders/basic.prog", 
+    "program":"Shaders/basic.prog", 
     "texture":"textures/wood.png", 
     "ambient":[ 
         1, 

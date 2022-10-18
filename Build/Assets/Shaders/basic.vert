@@ -8,13 +8,15 @@ out vec3 color;
 out vec2 texcoord;
 
 uniform mat4 transform;
+uniform vec3 tint;
+uniform float scale;
 
 void main()
 {
 	color = vcolor;
 	texcoord = vtexcoord;
 
-	vec4 tposition = vec4(vposition, 1) * transform;
+	vec4 tposition = vec4(vposition * scale, 1) * transform;
 
 	gl_Position = tposition;
 }
