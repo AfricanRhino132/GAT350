@@ -93,70 +93,70 @@ namespace neu
 
 	void Renderer::Draw(std::shared_ptr<Texture> texture, const Vector2& position, float angle, const Vector2& scale, const Vector2& registration)
 	{
-		Vector2 size = texture->GetSize();
+		//Vector2 size = texture->GetSize();
 
-		size *= scale;
+		//size *= scale;
 
-		Vector2 origin = (size * registration);
+		//Vector2 origin = (size * registration);
 
-		Vector2 tposition = position - origin;
+		//Vector2 tposition = position - origin;
 
-		SDL_Rect dest;
-		// !! make sure to cast to int to prevent compiler warnings 
-		dest.x = (int)tposition.x;// !! set to position x 
-		dest.y = (int)tposition.y;// !! set to position y 
-		dest.w = (int)size.x;// !! set to size x 
-		dest.h = (int)size.y;// !! set to size y 
+		//SDL_Rect dest;
+		//// !! make sure to cast to int to prevent compiler warnings 
+		//dest.x = (int)tposition.x;// !! set to position x 
+		//dest.y = (int)tposition.y;// !! set to position y 
+		//dest.w = (int)size.x;// !! set to size x 
+		//dest.h = (int)size.y;// !! set to size y 
 
-		SDL_Point center{ (int)origin.x, (int)origin.y};
+		//SDL_Point center{ (int)origin.x, (int)origin.y};
 
 		//SDL_RenderCopyEx(m_renderer, texture->m_texture, nullptr, &dest, angle, &center, SDL_FLIP_NONE);
 	}
 
 	void Renderer::Draw(std::shared_ptr<Texture> texture, const Transform& transform, const Vector2& registration)
 	{
-		Vector2 size = texture->GetSize();
+		//Vector2 size = texture->GetSize();
 
-		size *= transform.scale;
+		//size *= transform.scale;
 
-		Vector2 origin = (size * registration);
+		//Vector2 origin = (size * registration);
 
-		Vector2 tposition = transform.position - origin;
+		//Vector2 tposition = transform.position - origin;
 
-		SDL_Rect dest;
-		// !! make sure to cast to int to prevent compiler warnings 
-		dest.x = (int)tposition.x;// !! set to position x 
-		dest.y = (int)tposition.y;// !! set to position y 
-		dest.w = (int)size.x;// !! set to size x 
-		dest.h = (int)size.y;// !! set to size y 
+		//SDL_Rect dest;
+		//
+		//dest.x = (int)tposition.x;// !! set to position x 
+		//dest.y = (int)tposition.y;// !! set to position y 
+		//dest.w = (int)size.x;// !! set to size x 
+		//dest.h = (int)size.y;// !! set to size y 
 
-		SDL_Point center{ (int)origin.x, (int)origin.y };
+		//SDL_Point center{ (int)origin.x, (int)origin.y };
 
 		//SDL_RenderCopyEx(m_renderer, texture->m_texture, nullptr, &dest, transform.rotation, &center, SDL_FLIP_NONE);
 	}
 
 	void Renderer::Draw(std::shared_ptr<Texture> texture, const Rect& source, const Transform& transform, const Vector2& registration, bool flipH)
 	{
-		Matrix3x3 mx = m_viewport * m_view * transform.matrix;
+		//Matrix3x3 mx = m_viewport * m_view * transform.matrix;
 
-		Vector2 size = Vector2{ source.w, source.h};
+		//Vector2 size = Vector2{ source.w, source.h};
 
-		size *= mx.GetScale();
+		//size *= mx.GetScale();
 
-		Vector2 origin = (size * registration);
+		//Vector2 origin = (size * registration);
 
-		Vector2 tposition = mx.GetTranslation() - origin;
+		//Vector2 tposition = mx.GetTranslation() - origin;
 
-		SDL_Rect dest;
-		// !! make sure to cast to int to prevent compiler warnings 
-		dest.x = (int)tposition.x;// !! set to position x 
-		dest.y = (int)tposition.y;// !! set to position y 
-		dest.w = (int)size.x;// !! set to size x 
-		dest.h = (int)size.y;// !! set to size y 
+		//SDL_Rect dest;
+		//// !! make sure to cast to int to prevent compiler warnings 
+		//dest.x = (int)tposition.x;// !! set to position x 
+		//dest.y = (int)tposition.y;// !! set to position y 
+		//dest.w = (int)size.x;// !! set to size x 
+		//dest.h = (int)size.y;// !! set to size y 
 
-		SDL_Point center{ (int)origin.x, (int)origin.y };
+		//SDL_Point center{ (int)origin.x, (int)origin.y };
 
-		SDL_Rect src{ source.x, source.y, source.w, source.h };
+		//SDL_Rect src{ source.x, source.y, source.w, source.h };
 
 		//SDL_RenderCopyEx(m_renderer, texture->m_texture, &src, &dest, math::RadToDeg(mx.GetRotation()), &center, (SDL_RendererFlip)flipH);
 	}

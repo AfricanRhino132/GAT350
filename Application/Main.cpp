@@ -63,25 +63,12 @@ int main(int argc, char** argv)
 
 	LOG("Window Initialized...");
 
-	GLuint vbo = 0;
-	glGenBuffers(1, &vbo);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	std::shared_ptr<neu::VertexBuffer> vb = neu::g_resources.Get<neu::VertexBuffer>("box");
+	vb->CreateVertexBuffer(sizeof(vertices), 36, vertices);
+	vb->SetAttribute(0, 3, 8 * sizeof(float), 0);
+	vb->SetAttribute(1, 3, 8 * sizeof(float), 3 * sizeof(float));
+	vb->SetAttribute(2, 2, 8 * sizeof(float), 6 * sizeof(float));
 
-	GLuint vao = 0;
-	glGenVertexArrays(1, &vao);
-	glBindVertexArray(vao);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
-
-	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
-
-	glEnableVertexAttribArray(2);
-	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
-	
 	std::shared_ptr<neu::Program> program = neu::g_resources.Get<neu::Program>("Shaders/basic.prog");
 	program->Link();
 	program->Use();
@@ -98,6 +85,13 @@ int main(int argc, char** argv)
 
 	glm::vec3 cameraPosition{ 0, 2, 2 };
 	float cameraSpeed = 3;
+
+	std::vector<neu::Transform> t;
+
+	for (size_t i = 0; i < 1000; i++)
+	{
+		t.push_back({ { neu::randomf(-10, 10), neu::randomf(-10, 10), neu::randomf(-10, 10) }, { neu::randomf(360), neu::randomf(360), neu::randomf(360)} });
+	}
 
 	bool quit = false;
 	while (!quit)
@@ -126,17 +120,21 @@ int main(int argc, char** argv)
 			cameraPosition.y += cameraSpeed * neu::g_time.deltaTime;
 		}
 
-		//model = glm::eulerAngleXYZ(0.0f, 0.0f, neu::g_time.time);
-		
 		glm::mat4 view = glm::lookAt(cameraPosition, cameraPosition + glm::vec3{ 0, 0, -1 }, glm::vec3{ 0, 1, 0 });
 		
-		glm::mat4 mvp = projection * view * model;
-
-		material->GetProgram()->SetUniform("mvp", mvp);
-
+		//model = glm::eulerAngleXYZ(0.0f, neu::g_time.time, neu::g_time.time);
+		
 		neu::g_renderer.BeginFrame();
 
-		glDrawArrays(GL_TRIANGLES, 0, 36);
+		for (size_t i = 0; i < 1000; i++)
+		{
+			t[i].rotation += glm::vec3{ 0, 90 * neu::g_time.deltaTime, 0 };
+
+			glm::mat4 mvp = projection * view * (glm::mat4)t[i];
+			material->GetProgram()->SetUniform("mvp", mvp);
+			vb->Draw();
+		}
+
 
 		neu::g_renderer.EndFrame();
 	}

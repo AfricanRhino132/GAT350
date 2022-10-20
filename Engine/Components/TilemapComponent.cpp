@@ -5,7 +5,7 @@ namespace  neu
 {
     void TilemapComponent::Initialize()
     {
-        for (int i = 0; i < tiles.size(); i++)
+        /*for (int i = 0; i < tiles.size(); i++)
         {
             int index = tiles[i];
             if (index == 0) continue;
@@ -19,7 +19,7 @@ namespace  neu
                 actor->m_transform.position = m_owner->m_transform.position + (Vector2{ x, y } *size);
                 m_owner->GetScene()->Add(std::move(actor));
             }
-        }
+        }*/
 
     }
 

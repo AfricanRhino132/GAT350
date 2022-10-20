@@ -8,7 +8,7 @@ namespace neu
 {
 	void PlayerComponent::Update()
 	{
-		Vector2 direction = Vector2::zero;
+		/*Vector2 direction = Vector2::zero;
 
 		auto animComponent = m_owner->GetComponent<SpriteAnimComponent>();
 
@@ -109,7 +109,7 @@ namespace neu
 					component->SetLinearVelocity(Vector2::zero);
 				}
 
-			}
+			}*/
 
 			/*if (m_groundCount > 0 && g_inputSystem.GetKeyState(key_space) == InputSystem::State::Pressed)
 			{
@@ -123,7 +123,7 @@ namespace neu
 			}*/
 
 
-			if (animComponent)
+			/*if (animComponent)
 			{
 				if (!isAttacking)
 				{
@@ -234,7 +234,7 @@ namespace neu
 		if (camera) 
 		{ 
 			camera->m_transform.position = m_owner->m_transform.position; 
-		} 
+		} */ 
 	}
 
 	void PlayerComponent::OnNotify(const Event& event)

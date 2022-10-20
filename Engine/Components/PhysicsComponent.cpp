@@ -5,13 +5,13 @@ namespace neu
 {
 	void PhysicsComponent::Update()
 	{
-		velocity += acceleration * g_time.deltaTime;
+		/*velocity += acceleration * g_time.deltaTime;
 
 		velocity *= damping;
 
 		m_owner->m_transform.position += velocity * g_time.deltaTime;
 
-		acceleration = Vector2::zero;
+		acceleration = Vector2::zero;*/
 	}
 	bool PhysicsComponent::Write(const rapidjson::Value& value) const
 	{

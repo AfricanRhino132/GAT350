@@ -1,22 +1,19 @@
 #pragma once
-#include "Vector2.h"
-#include "Matrix2x2.h"
 #include "MathUtils.h"
-#include "Matrix3x3.h"
 #include "Serialization/Serializable.h"
 
 namespace neu
 {
 	struct Transform : public ISerializable
 	{
-		Vector2 position;
-		Vector2 scale{1, 1};
-		float rotation{ 0 };
+		glm::vec3 position{ 0 };
+		glm::vec3 scale{ 1 };
+		glm::vec3 rotation{ 0 };
 
-		Matrix3x3 matrix;
+		glm::mat4 matrix;
 
 		Transform() = default;
-		Transform(const Vector2& position, float rotation, const Vector2& scale) :
+		Transform(const glm::vec3& position, const glm::vec3& rotation = { 0, 0, 0 }, const glm::vec3& scale = { 1, 1, 1}) :
 			position{ position },
 			rotation{ rotation },
 			scale{ scale }
@@ -27,37 +24,19 @@ namespace neu
 
 		void Update()
 		{
-			Matrix3x3 mxScale = Matrix3x3::CreateScale(scale);
-			Matrix3x3 mxRotate = Matrix3x3::CreateRotation(math::DegToRad(rotation));
-			Matrix3x3 mxTranslate = Matrix3x3::CreateTranslation(position);
-
-			matrix = { mxTranslate * mxRotate * mxScale };
+			matrix = *this;
 		}
 
-		void Update(const Matrix3x3& parent)
+		void Update(const glm::mat4& parent)
 		{
-			Matrix3x3 mxScale = Matrix3x3::CreateScale(scale);
-			Matrix3x3 mxRotate = Matrix3x3::CreateRotation(math::DegToRad(rotation));
-			Matrix3x3 mxTranslate = Matrix3x3::CreateTranslation(position);
-
-			matrix = { mxTranslate * mxRotate * mxScale };
-
-			matrix = parent * matrix;
+			matrix = parent * (glm::mat4)(*this);
 		}
 
-		/*operator Matrix2x2 () const
+		operator glm::mat4 () const
 		{
-			Matrix2x2 mxScale = Matrix2x2::CreateScale(scale);
-			Matrix2x2 mxRotate = Matrix2x2::CreateRotation(math::DegToRad(rotation));
-			
-			return { mxScale * mxRotate };
-		}*/
-
-		operator Matrix3x3 () const
-		{
-			Matrix3x3 mxScale = Matrix3x3::CreateScale(scale);
-			Matrix3x3 mxRotate = Matrix3x3::CreateRotation(math::DegToRad(rotation));
-			Matrix3x3 mxTranslate = Matrix3x3::CreateTranslation(position);
+			glm::mat4 mxScale = glm::scale(scale);
+			glm::mat4 mxRotate = glm::eulerAngleXYZ(glm::radians(rotation.x), glm::radians(rotation.y), glm::radians(rotation.z));
+			glm::mat4 mxTranslate = glm::translate(position);
 
 			return { mxTranslate * mxRotate * mxScale };
 		}

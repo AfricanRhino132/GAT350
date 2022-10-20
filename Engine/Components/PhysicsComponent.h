@@ -1,5 +1,6 @@
 #pragma once
 #include "FrameWork/Component.h"
+#include "Math/Vector2.h"
 
 namespace neu
 {

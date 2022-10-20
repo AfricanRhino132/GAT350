@@ -40,7 +40,7 @@ namespace neu
 
     void Model::Draw(Renderer& renderer, const Transform& transform)
     {
-        Matrix3x3 mx = transform.matrix;
+       /* Matrix3x3 mx = transform.matrix;
 
         for (unsigned int i = 0; i < m_points.size() - 1; i++)
         {
@@ -48,7 +48,7 @@ namespace neu
             neu::Vector2 p2 = mx * m_points[i + 1];
 
             renderer.DrawLine(p1, p2, m_color);
-        }
+        }*/
     }
 
     bool Model::Load(const std::string& filename)

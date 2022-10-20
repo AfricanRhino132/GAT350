@@ -12,10 +12,10 @@ namespace neu
     void CameraComponent::Update()
     {
         // create camera view matrix 
-        Matrix3x3 mxTranslation = Matrix3x3::CreateTranslation(-m_owner->m_transform.position);
+       /* Matrix3x3 mxTranslation = Matrix3x3::CreateTranslation(-m_owner->m_transform.position);
         Matrix3x3 mxRotation = Matrix3x3::CreateRotation(-math::DegToRad(m_owner->m_transform.rotation));
 
-        m_view = mxTranslation * mxRotation;
+        m_view = mxTranslation * mxRotation;*/
 
         /*if ((g_inputSystem.GetMousePosition().x >= 0 && g_inputSystem.GetMousePosition().x <= 50) || (g_inputSystem.GetMousePosition().x > g_renderer.getScreenWidth() - 50 && g_inputSystem.GetMousePosition().x <= g_renderer.getScreenWidth()))
         {

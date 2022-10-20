@@ -2,6 +2,7 @@
 #include "Framework/Component.h"
 #include "Physics/Collision.h"
 #include "Framework/Event.h"
+#include "Math/Vector2.h"
 
 namespace neu
 {
