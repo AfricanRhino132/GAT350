@@ -1,5 +1,6 @@
 #pragma once
 #include "Actor.h"
+#include "Resource/Resource.h"
 
 #include <list>
 #include <memory>
@@ -11,7 +12,7 @@ namespace neu
 
 	class Game;
 
-	class Scene : public GameObject, public ISerializable
+	class Scene : public GameObject, public ISerializable, public Resource
 	{
 	public:
 		Scene() = default;
@@ -19,6 +20,8 @@ namespace neu
 		Scene(const Scene& other) {};
 		~Scene() = default;
 
+		virtual bool Create(std::string name, ...) override;
+		
 		CLASS_DECLARATION(Scene)
 
 		void Initialize() override;
@@ -50,6 +53,9 @@ namespace neu
 		Game* m_game = nullptr;
 
 		std::list<std::unique_ptr<Actor>> m_actors;
+
+
+		
 
 	};
 
