@@ -32,5 +32,17 @@
     <None Include="..\Build\Assets\Materials\box.mtrl">
       <Filter>Resources</Filter>
     </None>
+    <None Include="..\Build\Assets\Shaders\basicLit.frag">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\basicLit.prog">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\basicLit.vert">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\ogre.mtrl">
+      <Filter>Resources</Filter>
+    </None>
   </ItemGroup>
 </Project>

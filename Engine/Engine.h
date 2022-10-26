@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Serialization/Json.h"
+#include "Renderer/Model.h"
 
 #include "Physics/PhysicsSystem.h"
 
@@ -19,7 +20,6 @@
 #include "FrameWork/Factory.h"
 #include "FrameWork/EventManager.h"
 
-#include "Renderer/Model.h"
 #include "Renderer/Font.h"
 #include "Renderer/Text.h"
 #include "Renderer/Renderer.h"
@@ -47,6 +47,7 @@
 #include "Components/TilemapComponent.h"
 #include "Components/CharacterComponent.h"
 #include "Components/CameraComponent.h"
+#include "Components/LightComponent.h"
 
 #include <memory>
 

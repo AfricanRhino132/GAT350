@@ -2,6 +2,17 @@
 
 #include <iostream>
 
+
+/*
+	Copy basic.scene
+	rename it to basic_lit.scn
+	drag into visual studio
+	change where we load in basic.scn to basic_lit.scn
+	get the stuff from teams put it before the camera and after the ogre
+	change the LightComponent ambient to 0.2, 0.2, 0.2 in basic_lit.scn
+*/
+
+
 float vertices[] = { // pos color uv
 	 0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  1.0f, 1.0f,
 	-0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  0.0f, 0.0f,
@@ -69,29 +80,26 @@ int main(int argc, char** argv)
 	vb->SetAttribute(1, 3, 8 * sizeof(float), 3 * sizeof(float));
 	vb->SetAttribute(2, 2, 8 * sizeof(float), 6 * sizeof(float));
 
+	auto m = neu::g_resources.Get<neu::Model>("models/ogre.obj");
+
 	std::shared_ptr<neu::Program> program = neu::g_resources.Get<neu::Program>("Shaders/basic.prog");
 	program->Link();
 	program->Use();
+
 	
-	std::shared_ptr<neu::Material> material = neu::g_resources.Get<neu::Material>("materials/box.mtrl");
+	std::shared_ptr<neu::Material> material = neu::g_resources.Get<neu::Material>("materials/ogre.mtrl");
 	material->Bind();
 
 	material->GetProgram()->SetUniform("scale", 0.5f);
 	//material->GetProgram()->SetUniform("tint", glm::vec3{ 1, 0, 0 });
 	//material->GetProgram()->SetUniform("scale", std::sin(neu::g_time.time * 3));
+
 	
 	glm::mat4 model{ 1 };
 	glm::mat4 projection = glm::perspective(45.0f, (float)neu::g_renderer.getScreenWidth() / neu::g_renderer.getScreenHeight(), 0.01f, 100.0f);
 
-	glm::vec3 cameraPosition{ 0, 2, 2 };
+	glm::vec3 cameraPosition{ 0, 0, 2 };
 	float cameraSpeed = 3;
-
-	std::vector<neu::Transform> t;
-
-	for (size_t i = 0; i < 1000; i++)
-	{
-		t.push_back({ { neu::randomf(-10, 10), neu::randomf(-10, 10), neu::randomf(-10, 10) }, { neu::randomf(360), neu::randomf(360), neu::randomf(360)} });
-	}
 
 	bool quit = false;
 	while (!quit)
@@ -122,19 +130,14 @@ int main(int argc, char** argv)
 
 		glm::mat4 view = glm::lookAt(cameraPosition, cameraPosition + glm::vec3{ 0, 0, -1 }, glm::vec3{ 0, 1, 0 });
 		
-		//model = glm::eulerAngleXYZ(0.0f, neu::g_time.time, neu::g_time.time);
+		model = glm::eulerAngleXYZ(0.0f, neu::g_time.time, 0.0f);
+
+		glm::mat4 mvp = projection * view * model;
+		material->GetProgram()->SetUniform("mvp", mvp);
 		
 		neu::g_renderer.BeginFrame();
 
-		for (size_t i = 0; i < 1000; i++)
-		{
-			t[i].rotation += glm::vec3{ 0, 90 * neu::g_time.deltaTime, 0 };
-
-			glm::mat4 mvp = projection * view * (glm::mat4)t[i];
-			material->GetProgram()->SetUniform("mvp", mvp);
-			vb->Draw();
-		}
-
+		m->m_vertexBuffer.Draw();
 
 		neu::g_renderer.EndFrame();
 	}
