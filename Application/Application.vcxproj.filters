@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Materials">
+      <UniqueIdentifier>{5f72f359-735a-4e7e-a51e-fc146ee84007}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scenes">
+      <UniqueIdentifier>{991f4feb-6e2d-4772-bc20-0681f6f2189f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -29,9 +35,6 @@
     <None Include="..\Build\Assets\Shaders\basic.prog">
       <Filter>Resources</Filter>
     </None>
-    <None Include="..\Build\Assets\Materials\box.mtrl">
-      <Filter>Resources</Filter>
-    </None>
     <None Include="..\Build\Assets\Shaders\basicLit.frag">
       <Filter>Resources</Filter>
     </None>
@@ -42,7 +45,13 @@
       <Filter>Resources</Filter>
     </None>
     <None Include="..\Build\Assets\Materials\ogre.mtrl">
-      <Filter>Resources</Filter>
+      <Filter>Materials</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\box.mtrl">
+      <Filter>Materials</Filter>
+    </None>
+    <None Include="..\Build\Assets\Scenes\basic.scn">
+      <Filter>Scenes</Filter>
     </None>
   </ItemGroup>
 </Project>

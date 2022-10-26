@@ -17,9 +17,6 @@ namespace neu
 		SDL_Surface* surface = IMG_Load("Sprites/cursor1.png");
 		SDL_Cursor* cursor = SDL_CreateColorCursor(surface, 0, 0);
 		SDL_SetCursor(cursor);
-
-		m_view = Matrix3x3::identity;
-		m_viewport = Matrix3x3::identity;
 	}
 
 	void Renderer::Shutdown()

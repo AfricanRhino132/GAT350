@@ -7,12 +7,9 @@ in layout(location = 1)  vec2 vtexcoord;
 out vec3 color;
 out vec2 texcoord;
 
-uniform mat4 mvp;
-//uniform mat4 model;
-//uniform mat4 view;
-//uniform mat4 projection;
-
-uniform float scale;
+uniform mat4 model;
+uniform mat4 view;
+uniform mat4 projection;
 
 void main()
 {
@@ -20,8 +17,8 @@ void main()
 	
 	texcoord = vtexcoord;
 
-	//mat4 mvp = projection * view * model;
-	vec4 tposition = mvp * vec4(vposition * scale, 1);
+	mat4 mvp = projection * view * model;
+	vec4 tposition = mvp * vec4(vposition, 1);
 
 	gl_Position = tposition;
 }

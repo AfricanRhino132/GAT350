@@ -48,6 +48,7 @@
 #include "Components/CharacterComponent.h"
 #include "Components/CameraComponent.h"
 #include "Components/LightComponent.h"
+#include "Components/CameraController.h"
 
 #include <memory>
 

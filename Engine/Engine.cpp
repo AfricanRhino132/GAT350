@@ -25,6 +25,7 @@ namespace neu
 		REGISTER_CLASS(TilemapComponent);
 		REGISTER_CLASS(CameraComponent);
 		REGISTER_CLASS(LightComponent);
+		REGISTER_CLASS(CameraController);
 		
 	}
 
