@@ -46,7 +46,7 @@ namespace neu
 	bool Scene::Create(std::string name, ...)
 	{
 		rapidjson::Document document;
-		bool success = neu::json::Load("scenes/basic.scn", document);
+		bool success = neu::json::Load(name, document);
 		if (!success)
 		{
 			LOG("error loading scene file %s.", "scenes/basic.scn");

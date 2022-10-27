@@ -2,17 +2,6 @@
 
 #include <iostream>
 
-
-/*
-	Copy basic.scene
-	rename it to basic_lit.scn
-	drag into visual studio
-	change where we load in basic.scn to basic_lit.scn
-	get the stuff from teams put it before the camera and after the ogre
-	change the LightComponent ambient to 0.2, 0.2, 0.2 in basic_lit.scn
-*/
-
-
 int main(int argc, char** argv)
 {
 	LOG("Application Started...");
@@ -30,14 +19,16 @@ int main(int argc, char** argv)
 
 	LOG("Window Initialized...");
 
-	auto scene = neu::g_resources.Get<neu::Scene>("scenes/basic.scn");
+	auto scene = neu::g_resources.Get<neu::Scene>("scenes/basicLit.scn");
 
-	std::shared_ptr<neu::Program> program = neu::g_resources.Get<neu::Program>("Shaders/basic.prog");
+	std::shared_ptr<neu::Program> program = neu::g_resources.Get<neu::Program>("Shaders/basic_phong.prog");
 	program->Link();
 	program->Use();
 
-	std::shared_ptr<neu::Material> material = neu::g_resources.Get<neu::Material>("materials/ogre.mtrl");
+	std::shared_ptr<neu::Material> material = neu::g_resources.Get<neu::Material>("Materials/ogre.mtrl");
 	material->Bind();
+		
+	auto actor = scene->GetActorFromName("Ogre");
 
 	bool quit = false;
 	while (!quit)
@@ -45,6 +36,8 @@ int main(int argc, char** argv)
 		neu::Engine::Instance().Update();
 
 		if (neu::g_inputSystem.GetKeyState(neu::key_esc) == neu::InputSystem::State::Pressed) quit = true;
+
+		actor->m_transform.rotation.y += std::sin(90 * neu::g_time.deltaTime);
 
 		scene->Update();
 		
