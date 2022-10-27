@@ -9,8 +9,7 @@ namespace neu
 		m_view = glm::lookAt(m_owner->m_transform.position, m_owner -> m_transform.position + m_owner->m_transform.getForward(), glm::vec3{ 0, 1, 0 });
 	}
 
-	void CameraComponent::SetPerspective(float fov, float aspectRatio, float near,
-		float far)
+	void CameraComponent::SetPerspective(float fov, float aspectRatio, float near, float far)
 	{
 
 		m_projection = glm::perspective(glm::radians(fov), aspectRatio, near, far);

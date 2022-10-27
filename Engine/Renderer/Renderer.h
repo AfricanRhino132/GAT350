@@ -53,8 +53,8 @@ namespace neu
 
 	private:
 
-		glm::mat4 m_view;
-		glm::mat4 m_projection;
+		glm::mat4 m_view{ 0 };
+		glm::mat4 m_projection{ 0 };
 
 		Color m_clearColor {0, 0, 0, 255};
 

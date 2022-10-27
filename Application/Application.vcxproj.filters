@@ -9,15 +9,15 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Resources">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Materials">
       <UniqueIdentifier>{5f72f359-735a-4e7e-a51e-fc146ee84007}</UniqueIdentifier>
     </Filter>
     <Filter Include="Scenes">
       <UniqueIdentifier>{991f4feb-6e2d-4772-bc20-0681f6f2189f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -27,22 +27,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Build\Assets\Shaders\basic.frag">
-      <Filter>Resources</Filter>
+      <Filter>Shaders</Filter>
     </None>
     <None Include="..\Build\Assets\Shaders\basic.vert">
-      <Filter>Resources</Filter>
+      <Filter>Shaders</Filter>
     </None>
     <None Include="..\Build\Assets\Shaders\basic.prog">
-      <Filter>Resources</Filter>
+      <Filter>Shaders</Filter>
     </None>
     <None Include="..\Build\Assets\Shaders\basicLit.frag">
-      <Filter>Resources</Filter>
+      <Filter>Shaders</Filter>
     </None>
     <None Include="..\Build\Assets\Shaders\basicLit.prog">
-      <Filter>Resources</Filter>
+      <Filter>Shaders</Filter>
     </None>
     <None Include="..\Build\Assets\Shaders\basicLit.vert">
-      <Filter>Resources</Filter>
+      <Filter>Shaders</Filter>
     </None>
     <None Include="..\Build\Assets\Materials\ogre.mtrl">
       <Filter>Materials</Filter>
@@ -52,6 +52,18 @@
     </None>
     <None Include="..\Build\Assets\Scenes\basic.scn">
       <Filter>Scenes</Filter>
+    </None>
+    <None Include="..\Build\Assets\Scenes\basicLit.scn">
+      <Filter>Scenes</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\basic_phong.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\basic_phong.prog">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\basic_phong.vert">
+      <Filter>Shaders</Filter>
     </None>
   </ItemGroup>
 </Project>
