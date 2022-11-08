@@ -29,6 +29,8 @@ namespace neu
 
 		void Bind() { glBindTexture(m_target, m_texture); }
 
+		static GLenum GetInternalFormat(GLuint format);
+
 		Vector2 GetSize() const;
 
 		friend class Renderer;
@@ -39,5 +41,7 @@ namespace neu
 	private:
 		GLuint m_texture = 0;
 		GLenum m_target = GL_TEXTURE_2D;
+
+
 	};
 }

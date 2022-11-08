@@ -30,14 +30,7 @@ int main(int argc, char** argv)
 
 		if (neu::g_inputSystem.GetKeyState(neu::key_esc) == neu::InputSystem::State::Pressed) quit = true;
 
-		actor->m_transform.rotation.y += std::sin(15 * neu::g_time.deltaTime);
-
-		auto material = neu::g_resources.Get<neu::Material>("Materials/Multi.mtrl");
-		if (material)
-		{
-			//material->uv_offset.x -= neu::g_time.deltaTime;
-			//material->uv_offset.y -= neu::g_time.deltaTime;
-		}
+		actor->m_transform.rotation.y += std::sin(90 * neu::g_time.deltaTime);
 
 		scene->Update();
 		
