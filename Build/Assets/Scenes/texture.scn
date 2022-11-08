@@ -16,7 +16,7 @@
         ],
         "rotation": [
           0,
-          180,
+          0,
           0
         ]
       },
@@ -33,9 +33,9 @@
       "name": "Light",
       "transform": {
         "position": [
-          -5,
+          -2,
           0,
-          -1
+          -2
         ]
       },
       "components": [

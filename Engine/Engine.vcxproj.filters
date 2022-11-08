@@ -212,6 +212,9 @@
     <ClInclude Include="Components\CameraController.h">
       <Filter>Source\Components</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Utilities.h">
+      <Filter>Source\Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Math\MathUtils.cpp">
@@ -348,6 +351,9 @@
     </ClCompile>
     <ClCompile Include="Components\CameraController.cpp">
       <Filter>Source\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Utilities.cpp">
+      <Filter>Source\Core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

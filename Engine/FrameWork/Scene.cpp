@@ -49,7 +49,7 @@ namespace neu
 		bool success = neu::json::Load(name, document);
 		if (!success)
 		{
-			LOG("error loading scene file %s.", "scenes/basic.scn");
+			LOG("error loading scene file %s.", name);
 			return false;
 		}
 		else
