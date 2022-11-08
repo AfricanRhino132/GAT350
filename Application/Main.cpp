@@ -19,15 +19,8 @@ int main(int argc, char** argv)
 
 	LOG("Window Initialized...");
 
-	auto scene = neu::g_resources.Get<neu::Scene>("scenes/basicLit.scn");
+	auto scene = neu::g_resources.Get<neu::Scene>("scenes/texture.scn");
 
-	std::shared_ptr<neu::Program> program = neu::g_resources.Get<neu::Program>("Shaders/basic_phong.prog");
-	program->Link();
-	program->Use();
-
-	std::shared_ptr<neu::Material> material = neu::g_resources.Get<neu::Material>("Materials/ogre.mtrl");
-	material->Bind();
-		
 	auto actor = scene->GetActorFromName("Ogre");
 
 	bool quit = false;
@@ -37,7 +30,14 @@ int main(int argc, char** argv)
 
 		if (neu::g_inputSystem.GetKeyState(neu::key_esc) == neu::InputSystem::State::Pressed) quit = true;
 
-		actor->m_transform.rotation.y += std::sin(90 * neu::g_time.deltaTime);
+		actor->m_transform.rotation.y += std::sin(15 * neu::g_time.deltaTime);
+
+		auto material = neu::g_resources.Get<neu::Material>("Materials/Multi.mtrl");
+		if (material)
+		{
+			//material->uv_offset.x -= neu::g_time.deltaTime;
+			//material->uv_offset.y -= neu::g_time.deltaTime;
+		}
 
 		scene->Update();
 		

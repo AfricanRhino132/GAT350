@@ -65,5 +65,29 @@
     <None Include="..\Build\Assets\Shaders\basic_phong.vert">
       <Filter>Shaders</Filter>
     </None>
+    <None Include="..\Build\Assets\Scenes\texture.scn">
+      <Filter>Scenes</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\multi.mtrl">
+      <Filter>Materials</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\texture_phong.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\texture_phong.prog">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\texture_phong.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\normal_phong.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\normal_phong.prog">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\normal_phong.vert">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>
