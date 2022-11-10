@@ -70,5 +70,7 @@ namespace neu
 	extern const uint32_t key_enter;
 	extern const uint32_t key_down;
 	extern const uint32_t key_up;
+	extern const uint32_t key_q;
+	extern const uint32_t key_e;
 	
 }

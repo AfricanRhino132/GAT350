@@ -1,0 +1,4 @@
+{
+	"vertex_shader": "Shaders/lit/texture_diffuse_emissive_specular.vert",
+	"fragment_shader": "Shaders/lit/texture_diffuse_emissive_specular.frag"
+}

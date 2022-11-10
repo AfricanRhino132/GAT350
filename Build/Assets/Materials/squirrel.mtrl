@@ -1,0 +1,10 @@
+{
+  "program": "Shaders/lit/texture_diffuse_emissive_specular.prog",
+  "textures": [ "Textures/squirrel_diffuse.png", "Textures/squirrel_normal.png" ],
+  "color": [
+    1,
+    1,
+    1
+  ],
+  "shininess": 256
+} 

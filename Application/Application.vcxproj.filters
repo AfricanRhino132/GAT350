@@ -19,6 +19,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Shaders\Lit">
+      <UniqueIdentifier>{1b6f84a0-b37b-4602-83ae-6224e8456abb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders\unlit">
+      <UniqueIdentifier>{9540480c-06de-4417-8fde-0634d5c8c704}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders\fx">
+      <UniqueIdentifier>{901b1ed4-ff6a-4193-966d-e6bd6071c40f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -33,15 +42,6 @@
       <Filter>Shaders</Filter>
     </None>
     <None Include="..\Build\Assets\Shaders\basic.prog">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="..\Build\Assets\Shaders\basicLit.frag">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="..\Build\Assets\Shaders\basicLit.prog">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="..\Build\Assets\Shaders\basicLit.vert">
       <Filter>Shaders</Filter>
     </None>
     <None Include="..\Build\Assets\Materials\ogre.mtrl">
@@ -71,23 +71,62 @@
     <None Include="..\Build\Assets\Materials\multi.mtrl">
       <Filter>Materials</Filter>
     </None>
-    <None Include="..\Build\Assets\Shaders\texture_phong.frag">
-      <Filter>Shaders</Filter>
+    <None Include="..\Build\Assets\Shaders\Lit\texture.frag">
+      <Filter>Shaders\Lit</Filter>
     </None>
-    <None Include="..\Build\Assets\Shaders\texture_phong.prog">
-      <Filter>Shaders</Filter>
+    <None Include="..\Build\Assets\Shaders\Lit\texture.prog">
+      <Filter>Shaders\Lit</Filter>
     </None>
-    <None Include="..\Build\Assets\Shaders\texture_phong.vert">
-      <Filter>Shaders</Filter>
+    <None Include="..\Build\Assets\Shaders\Lit\texture.vert">
+      <Filter>Shaders\Lit</Filter>
     </None>
-    <None Include="..\Build\Assets\Shaders\normal_phong.frag">
-      <Filter>Shaders</Filter>
+    <None Include="..\Build\Assets\Shaders\Lit\texture_normal.frag">
+      <Filter>Shaders\Lit</Filter>
     </None>
-    <None Include="..\Build\Assets\Shaders\normal_phong.prog">
-      <Filter>Shaders</Filter>
+    <None Include="..\Build\Assets\Shaders\Lit\texture_normal.prog">
+      <Filter>Shaders\Lit</Filter>
     </None>
-    <None Include="..\Build\Assets\Shaders\normal_phong.vert">
-      <Filter>Shaders</Filter>
+    <None Include="..\Build\Assets\Shaders\Lit\texture_normal.vert">
+      <Filter>Shaders\Lit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\unlit\color.frag">
+      <Filter>Shaders\unlit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\unlit\color.prog">
+      <Filter>Shaders\unlit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\unlit\color.vert">
+      <Filter>Shaders\unlit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\unlit\texture.frag">
+      <Filter>Shaders\unlit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\unlit\texture.prog">
+      <Filter>Shaders\unlit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\unlit\texture.vert">
+      <Filter>Shaders\unlit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\fx\toon.frag">
+      <Filter>Shaders\fx</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\fx\toon.prog">
+      <Filter>Shaders\fx</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\fx\toon.vert">
+      <Filter>Shaders\fx</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\squirrel.mtrl">
+      <Filter>Materials</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\lit\texture_diffuse_emissive_specular.frag">
+      <Filter>Shaders\Lit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\lit\texture_diffuse_emissive_specular.prog">
+      <Filter>Shaders\Lit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\lit\texture_diffuse_emissive_specular.vert">
+      <Filter>Shaders\Lit</Filter>
     </None>
   </ItemGroup>
 </Project>

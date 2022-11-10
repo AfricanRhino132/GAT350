@@ -16,15 +16,15 @@
         ],
         "rotation": [
           0,
-          0,
+          180,
           0
         ]
       },
       "components": [
         {
           "type": "ModelComponent",
-          "model_name": "Models/ogre.obj",
-          "material_name": "Materials/ogre.mtrl"
+          "model_name": "Models/squirrel.glb",
+          "material_name": "Materials/squirrel.mtrl"
         }
       ]
     },
@@ -33,9 +33,9 @@
       "name": "Light",
       "transform": {
         "position": [
-          -3,
-          1,
-          0
+          0,
+          6,
+          -2
         ],
         "rotation": [
           85,
@@ -63,8 +63,8 @@
       "transform": {
         "position": [
           0,
-          0,
-          -4
+          3,
+          -10
         ]
       },
       "components": [
