@@ -1,5 +1,5 @@
 {
-  "program": "Shaders/lit/texture_diffuse_emissive_specular.prog",
+  "program": "Shaders/lit/texture_normal.prog",
   "textures": [ "Textures/squirrel_diffuse.png", "Textures/squirrel_normal.png" ],
   "color": [
     1,

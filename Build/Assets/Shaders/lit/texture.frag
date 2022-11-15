@@ -3,6 +3,7 @@
 #define POINT		0
 #define DIRECTIONAL	1
 #define SPOTLIGHT	2
+#define MAX_LIGHTS  5
  
 in vec3 position;
 in vec3 normal;
@@ -13,13 +14,12 @@ out vec4 fcolor; // pixel to draw
 uniform struct Light
 {
 	int type; 
-	vec3 ambient;
 	vec3 color;
 	vec4 position;
 	vec3 direction;
 	float cutoff;
 	float exponent;
-} light;
+} lights[MAX_LIGHTS];
  
 uniform struct Material
 {
@@ -28,12 +28,15 @@ uniform struct Material
 	vec2 uv_tiling;
 	vec2 uv_offset;
 } material;
+
+uniform int light_count;
+uniform vec3 ambient_color;
  
 layout (binding = 0) uniform sampler2D diffuseMap; // diffuse map
 //layout (binding = 1) uniform sampler2D specularMap; // specular map
  
  
-void phong(vec3 position, vec3 normal, out vec3 ambient, out vec3 diffuse, out vec3 specular)
+void phong(Light light, vec3 position, vec3 normal, out vec3 diffuse, out vec3 specular)
 {
 	// direction vector to light
 	// calculate light direction (unit vector)
@@ -51,10 +54,6 @@ void phong(vec3 position, vec3 normal, out vec3 ambient, out vec3 diffuse, out v
 		// if inside of cutoff, set spot intensity
 		spot_intensity = (angle < light.cutoff) ? pow(cosine, light.exponent) : 0;
 	}
- 
-	// AMBIENT
-	ambient = light.ambient * material.color;
- 
 	// DIFFUSE
 	// calculate light intensity with dot product (normal * light direction)
 	float intensity = max(dot(light_dir, normal), 0) * spot_intensity;
@@ -81,14 +80,15 @@ void phong(vec3 position, vec3 normal, out vec3 ambient, out vec3 diffuse, out v
  
 void main()
 {
-	vec3 ambient;
-	vec3 diffuse;
-	vec3 specular;
- 
-	phong(position, normal, ambient, diffuse, specular);
- 
-	vec2 ttexcoord = (texcoord * material.uv_tiling) + material.uv_offset;
-	vec4 texture_color = texture(diffuseMap, ttexcoord);
- 
-	fcolor = vec4(ambient + diffuse, 1) * texture_color + vec4(specular, 1);
+	fcolor = vec4(ambient_color, 1) * texture(diffuseMap, texcoord); 
+  
+ // calculate phong (diffuse, specular) for each light and add to color 
+	for (int i = 0; i < light_count; i++) 
+	{ 
+		vec3 diffuse; 
+		vec3 specular; 
+  
+		phong(lights[i], position, normal, diffuse, specular); 
+		fcolor += (vec4(diffuse, 1) * texture(diffuseMap, texcoord)) + vec4(specular, 1); 
+	}
 }

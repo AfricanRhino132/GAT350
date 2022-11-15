@@ -3,6 +3,8 @@
 
 namespace neu
 {
+	class Program;
+
 	class CameraComponent : public Component
 	{
 	public:
@@ -18,6 +20,8 @@ namespace neu
 
 		virtual bool Write(const rapidjson::Value& value) const override;
 		virtual bool Read(const rapidjson::Value& value) override;
+
+		void SetProgram(std::shared_ptr<Program> programs);
 
 	public:
 		glm::mat4 m_projection{ 1 };

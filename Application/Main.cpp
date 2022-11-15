@@ -19,26 +19,44 @@ int main(int argc, char** argv)
 
 	LOG("Window Initialized...");
 
+	neu::g_gui.Initialize(neu::g_renderer);
+
 	auto scene = neu::g_resources.Get<neu::Scene>("scenes/texture.scn");
 
-	auto actor = scene->GetActorFromName("Ogre");
+	auto actor = scene->GetActorFromName("Light");
+
+	glm::vec3 p = { 0, 0, 0 };
 
 	bool quit = false;
 	while (!quit)
 	{
 		neu::Engine::Instance().Update();
+		neu::g_gui.BeginFrame(neu::g_renderer);
 
 		if (neu::g_inputSystem.GetKeyState(neu::key_esc) == neu::InputSystem::State::Pressed) quit = true;
 
-		actor->m_transform.rotation.y += std::sin(90 * neu::g_time.deltaTime);
+		//actor->m_transform.rotation.y += std::sin(90 * neu::g_time.deltaTime);
+
+		if (actor)
+		{
+			actor->m_transform.position = p;
+		}
+
+		ImGui::Begin("Hello!");
+		ImGui::Button("Press Me!");
+		ImGui::SliderFloat3("Pos", &p[0], -10.0f, 10.0f);
+		ImGui::End();
 
 		scene->Update();
 		
 		neu::g_renderer.BeginFrame();
 
-		scene->Draw(neu::g_renderer);
+		scene->PreRender(neu::g_renderer);
+		scene->Render(neu::g_renderer);
+		neu::g_gui.Draw();
 
 		neu::g_renderer.EndFrame();
+		neu::g_gui.EndFrame();
 
 
 	}
