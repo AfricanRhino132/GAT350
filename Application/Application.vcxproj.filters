@@ -128,5 +128,20 @@
     <None Include="..\Build\Assets\Shaders\lit\texture_diffuse_emissive_specular.vert">
       <Filter>Shaders\Lit</Filter>
     </None>
+    <None Include="..\Build\Assets\Scenes\cubemap.scn">
+      <Filter>Scenes</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\skybox.mtrl">
+      <Filter>Materials</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\fx\skybox.frag">
+      <Filter>Shaders\fx</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\fx\skybox.prog">
+      <Filter>Shaders\fx</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\fx\skybox.vert">
+      <Filter>Shaders\fx</Filter>
+    </None>
   </ItemGroup>
 </Project>

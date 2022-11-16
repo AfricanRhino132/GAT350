@@ -21,7 +21,7 @@ int main(int argc, char** argv)
 
 	neu::g_gui.Initialize(neu::g_renderer);
 
-	auto scene = neu::g_resources.Get<neu::Scene>("scenes/texture.scn");
+	auto scene = neu::g_resources.Get<neu::Scene>("scenes/cubemap.scn");
 
 	auto actor = scene->GetActorFromName("Light");
 

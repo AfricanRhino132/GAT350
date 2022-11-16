@@ -4,6 +4,18 @@
   "actors": [
     {
       "type": "Actor",
+      "name": "Skybox",
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/cube.obj",
+          "material_name": "Materials/skybox.mtrl",
+          "depth_test":  false
+        }
+      ]
+    },
+    {
+      "type": "Actor",
       "name": "Model",
       "transform": {
         "position": [
@@ -62,7 +74,7 @@
     {
       "type": "Actor",
       "name": "Light2",
-        "transform": {
+      "transform": {
         "position": [
           5,
           3,
