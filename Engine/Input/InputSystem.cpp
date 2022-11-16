@@ -26,6 +26,10 @@ namespace neu
 	const uint32_t key_q = SDL_SCANCODE_Q;
 	const uint32_t key_e = SDL_SCANCODE_E;
 
+	const uint32_t button_left = 0;
+	const uint32_t button_middle = 1;
+	const uint32_t button_right = 2;
+
 	void InputSystem::Initialize()
 	{
 		const uint8_t* keyboardState = SDL_GetKeyboardState(&m_numKeys);
@@ -82,18 +86,13 @@ namespace neu
 		m_prevMouseButtonState = m_mouseButtonState;
 		int x, y;
 		uint32_t buttons = SDL_GetMouseState(&x, &y);
-		m_mousePos = neu::Vector2{ x , y };
+		m_mousePos = glm::vec2{ (float)x , (float)y };
+		m_mouseRelative = m_mousePos - m_prevMousePosition;
+		m_prevMousePosition = m_mousePos;
 		m_mouseButtonState[0] = buttons & SDL_BUTTON_LMASK; // buttons [0001] & [0RML] 
 		m_mouseButtonState[1] = buttons & SDL_BUTTON_MMASK; // buttons [0010] & [0RML] 
 		m_mouseButtonState[2] = buttons & SDL_BUTTON_RMASK; // buttons [0100] & [0RML]
 
-		//std::cout << (bool)m_keyboardState[SDL_SCANCODE_SPACE] << std::endl;
-
-		/*for (auto state : m_keyboardState)
-		{
-			std::cout << (bool)state;
-		}
-		std::cout << std::endl;*/
 	}
 
 	InputSystem::State InputSystem::GetButtonState(int button)

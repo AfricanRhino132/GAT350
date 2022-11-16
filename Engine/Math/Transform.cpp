@@ -11,8 +11,10 @@ namespace neu
     {
         READ_DATA(value, position);
         READ_DATA(value, scale);
-        READ_DATA(value, rotation);
 
+        glm::vec3 euler;
+        READ_NAME_DATA(value, "rotation", euler);
+        rotation = math::EulerToQuaternion(euler);
 
         return false;
     }

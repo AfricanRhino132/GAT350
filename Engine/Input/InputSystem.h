@@ -1,7 +1,7 @@
 #pragma once
+#include "Math/MathUtils.h"
 #include <vector>
 #include <cstdint>
-#include "../Math/Vector2.h"
 #include <array>
 
 namespace neu
@@ -30,7 +30,8 @@ namespace neu
 
 		State GetKeyState(uint32_t key);
 
-		const Vector2& GetMousePosition() const { return m_mousePos; }
+		const glm::vec2& GetMousePosition() const { return m_mousePos; }
+		const glm::vec2& GetMouseRelative() const { return m_mouseRelative; }
 
 		State GetButtonState(int mouse);
 
@@ -41,7 +42,9 @@ namespace neu
 	private:
 		int m_numKeys;
 
-		Vector2 m_mousePos;
+		glm::vec2 m_mousePos;
+		glm::vec2 m_prevMousePosition;
+		glm::vec2 m_mouseRelative;
 
 		std::array<uint8_t, 3> m_mouseButtonState;
 
@@ -72,5 +75,9 @@ namespace neu
 	extern const uint32_t key_up;
 	extern const uint32_t key_q;
 	extern const uint32_t key_e;
+
+	extern const uint32_t button_left;
+	extern const uint32_t button_middle;
+	extern const uint32_t button_right;
 	
 }
