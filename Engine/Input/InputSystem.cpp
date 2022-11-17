@@ -11,9 +11,6 @@ namespace neu
 	const uint32_t key_s = SDL_SCANCODE_S;
 	const uint32_t key_d = SDL_SCANCODE_D;
 	const uint32_t key_esc = SDL_SCANCODE_ESCAPE;
-	const uint32_t mouse_left = 0;
-	const uint32_t mouse_middle = 1;
-	const uint32_t mouse_right = 2;
 	const uint32_t key_shiftL = SDL_SCANCODE_LSHIFT;
 	const uint32_t key_semicolon = SDL_SCANCODE_SEMICOLON;
 	const uint32_t key_i = SDL_SCANCODE_I;
@@ -92,7 +89,6 @@ namespace neu
 		m_mouseButtonState[0] = buttons & SDL_BUTTON_LMASK; // buttons [0001] & [0RML] 
 		m_mouseButtonState[1] = buttons & SDL_BUTTON_MMASK; // buttons [0010] & [0RML] 
 		m_mouseButtonState[2] = buttons & SDL_BUTTON_RMASK; // buttons [0100] & [0RML]
-
 	}
 
 	InputSystem::State InputSystem::GetButtonState(int button)

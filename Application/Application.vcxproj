@@ -146,6 +146,8 @@
     <None Include="..\Build\Assets\Materials\box.mtrl" />
     <None Include="..\Build\Assets\Materials\multi.mtrl" />
     <None Include="..\Build\Assets\Materials\ogre.mtrl" />
+    <None Include="..\Build\Assets\Materials\reflection.mtrl" />
+    <None Include="..\Build\Assets\Materials\refraction.mtrl" />
     <None Include="..\Build\Assets\Materials\skybox.mtrl" />
     <None Include="..\Build\Assets\Materials\squirrel.mtrl" />
     <None Include="..\Build\Assets\Scenes\basic.scn" />
@@ -158,6 +160,12 @@
     <None Include="..\Build\Assets\Shaders\basic_phong.frag" />
     <None Include="..\Build\Assets\Shaders\basic_phong.prog" />
     <None Include="..\Build\Assets\Shaders\basic_phong.vert" />
+    <None Include="..\Build\Assets\Shaders\fx\reflection.frag" />
+    <None Include="..\Build\Assets\Shaders\fx\reflection.prog" />
+    <None Include="..\Build\Assets\Shaders\fx\reflection.vert" />
+    <None Include="..\Build\Assets\Shaders\fx\refraction.frag" />
+    <None Include="..\Build\Assets\Shaders\fx\refraction.prog" />
+    <None Include="..\Build\Assets\Shaders\fx\refraction.vert" />
     <None Include="..\Build\Assets\Shaders\fx\skybox.frag" />
     <None Include="..\Build\Assets\Shaders\fx\skybox.prog" />
     <None Include="..\Build\Assets\Shaders\fx\skybox.vert" />

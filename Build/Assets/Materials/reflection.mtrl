@@ -1,0 +1,11 @@
+{
+  "program": "Shaders/fx/reflection.prog",
+  "cubemap": "Textures/SanFrancisco/",
+  "cubemap_extension": ".jpg", 
+  "color": [
+    1,
+    1,
+    1
+  ],
+  "shininess": 32
+} 
