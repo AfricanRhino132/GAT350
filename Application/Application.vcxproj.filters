@@ -28,6 +28,9 @@
     <Filter Include="Shaders\fx">
       <UniqueIdentifier>{901b1ed4-ff6a-4193-966d-e6bd6071c40f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Shaders\PostProcess">
+      <UniqueIdentifier>{68919454-49c9-4a09-b03c-c6938c6c85ca}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -165,6 +168,24 @@
       <Filter>Shaders\fx</Filter>
     </None>
     <None Include="..\Build\Assets\Materials\refraction.mtrl">
+      <Filter>Materials</Filter>
+    </None>
+    <None Include="..\Build\Assets\Scenes\rtt.scn">
+      <Filter>Scenes</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\rtt.mtrl">
+      <Filter>Materials</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\PostProcess\postprocess.frag">
+      <Filter>Shaders\PostProcess</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\PostProcess\postprocess.prog">
+      <Filter>Shaders\PostProcess</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\PostProcess\postprocess.vert">
+      <Filter>Shaders\PostProcess</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\postprocess.mtrl">
       <Filter>Materials</Filter>
     </None>
   </ItemGroup>

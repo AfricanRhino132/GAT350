@@ -24,7 +24,7 @@ namespace neu
 		void Initialize();
 		void Shutdown();
 
-		void CreateWindow(const char* name, int width, int height, bool fullscreen);
+		void CreateWindow(const std::string& name, int width, int height, bool fullscreen);
 		void BeginFrame();
 		void EndFrame();
 
@@ -37,6 +37,8 @@ namespace neu
 		void Draw(std::shared_ptr<Texture> texture, const Transform& transform, const Vector2& registration = Vector2{ 0.5f, 0.5f });
 		void Draw(std::shared_ptr<Texture> texture, const Rect& source, const Transform& transform, const Vector2& registration = Vector2{ 0.5f, 0.5f }, bool flipH = false);
 
+		void SetViewport(int x, int y, int width, int height);
+		void RestoreViewport();
 
 		int getScreenWidth() { return m_width; }
 		int getScreenHeight() { return m_height; }
@@ -53,6 +55,8 @@ namespace neu
 
 		glm::vec3 clear_color{ 0, 0, 0 };
 		glm::vec3 ambient_color{ 0, 0, 0 };
+
+		bool fullscreen = false;
 
 	private:
 
